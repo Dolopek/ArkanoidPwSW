@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -22,6 +23,7 @@ public class BallsManager : MonoBehaviour
             _instance = this;
         }
     }
+
     #endregion
 
     [SerializeField]
@@ -54,6 +56,19 @@ public class BallsManager : MonoBehaviour
                 initialBallRb.AddForce(new Vector2(0, initialBallSpeed));
                 GameManager.Instance.IsGameStarted = true;
             }
+        }
+    }
+
+    public void SpawnBalls(Vector3 position, int count)
+    {
+        for (int i = 0; i < count; i++)
+        {
+            Ball spawnBall = Instantiate(ballPrefab, position, Quaternion.identity) as Ball;
+
+            Rigidbody2D spawnedBallRb = spawnBall.GetComponent<Rigidbody2D>();
+            spawnedBallRb.isKinematic = false;
+            spawnedBallRb.AddForce(new Vector2(0, initialBallSpeed));
+            this.Balls.Add(spawnBall);
         }
     }
 
