@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     public Text ScoreText;
     public Text LivesText;
     public Text LevelText;
+    internal static bool gameEnd;
 
     public int Score { get; set; }
 
@@ -18,12 +19,26 @@ public class UIManager : MonoBehaviour
         Brick.OnBrickDestruction += OnBrickDestruction;
         BricksManager.OnLevelLoaded += OnLevelLoaded;
         GameManager.OnLiveLost += OnLiveLost;
+        
     }
 
     private void Start()
     {
         OnLiveLost(GameManager.Instance.AvailibleLives);
+        gameEnd = false;
     }
+
+    private void Update()
+    {
+        if(gameEnd == true)
+        {
+            LivesText.text = $"";
+            LevelText.text = $"";
+            ScoreText.text = $"";
+            TargetText.text = $"";
+        }
+    }
+
 
     private void OnLiveLost(int remainingLives)
     {
@@ -60,5 +75,7 @@ public class UIManager : MonoBehaviour
         Brick.OnBrickDestruction -= OnBrickDestruction;
         BricksManager.OnLevelLoaded -= OnLevelLoaded;
         GameManager.OnLiveLost -= OnLiveLost;
+        
     }
+
 }

@@ -68,10 +68,15 @@
     <Compile Include="Assets\Scripts\BricksManager.cs" />
     <Compile Include="Assets\Scripts\Collectables\Collectable.cs" />
     <Compile Include="Assets\Scripts\Collectables\CollectablesManager.cs" />
+    <Compile Include="Assets\Scripts\Collectables\ExtendOrShrink.cs" />
+    <Compile Include="Assets\Scripts\Collectables\LightningBall.cs" />
     <Compile Include="Assets\Scripts\Collectables\MultiBall.cs" />
+    <Compile Include="Assets\Scripts\Collectables\ShootingPaddle.cs" />
+    <Compile Include="Assets\Scripts\Collectables\SlowDownOrSpeedUp.cs" />
     <Compile Include="Assets\Scripts\DeathWall.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Paddle.cs" />
+    <Compile Include="Assets\Scripts\Projectile.cs" />
     <Compile Include="Assets\Scripts\UIManager.cs" />
     <None Include="Assets\Resources\levels.txt" />
     <Reference Include="Unity.Timeline.Editor">

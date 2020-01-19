@@ -71,6 +71,8 @@ public class GameManager : MonoBehaviour
             if (this.Lives < 1)
             {
                 gameOverScreen.SetActive(true);
+                UIManager.gameEnd = true;
+                
             }
             else
             {
@@ -85,6 +87,8 @@ public class GameManager : MonoBehaviour
     internal void ShowVictoryScreen()
     {
         victoryScreen.SetActive(true);
+        UIManager.gameEnd = true;
+
     }
 
     private void OnDisable()
